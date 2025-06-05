@@ -56,41 +56,51 @@ Use these two parameters to take the human and computer choices as arguments.*/
 
 function playRound() {
     getHumanChoice();
-    //console.log(humanChoice);
+    console.log(humanChoice);
     getComputerChoice();
-    //console.log(computerChoice);
+    console.log(computerChoice);
 
     if (humanChoice == "rock" && computerChoice == "paper") {
         console.log("You lose! Paper beats Rock.");
-        computerWins = true
+        computerScore++;
     }
     else if (humanChoice == "paper" && computerChoice == "scissors") {
         console.log("You lose! Scissors beat Paper.");
-        computerWins = true
+        computerScore++;
     }
     else if (humanChoice == "scissors" && computerChoice == "rock") {
         console.log("You lose! Rock beats Scissors.");
-        computerWins = true
+        computerScore++;
     }
     else if (humanChoice == "paper" && computerChoice == "rock") {
         console.log("You win! Paper beats Rock.");
-        humanWins = true;
+        humanScore++;
     }
     else if (humanChoice == "scissors" && computerChoice == "paper") {
         console.log("You win! Scissors beat Paper.");
-        humanWins = true;
+        humanScore++;
     }
     else if (humanChoice == "rock" && computerChoice == "scissors") {
         console.log("You win! Rock beats Scissors.");
-        humanWins = true;
-
+        humanScore++;
         }
     else {
         console.log("You both chose the same, it is a DRAW.");
     }
 }
 
-playRound();
+function playGame() {
+    playRound();
+    playRound();
+    playRound();
+    playRound();
+    playRound();
+}
+
+playGame();
+
+console.log(`The final score is ${computerScore} for the computer and ${humanScore} for you.`);
+
 
 
 
