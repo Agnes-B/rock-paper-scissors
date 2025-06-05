@@ -90,11 +90,9 @@ function playRound() {
 // playing the game 5 times bu calling the playRound() function repeatedly
 function playGame() {
 
+    for (let i = 0; i < 5; i++) {
     playRound();
-    playRound();
-    playRound();
-    playRound();
-    playRound();
+    }
 }
 
 playGame();
