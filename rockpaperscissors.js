@@ -1,16 +1,27 @@
-// Create a new function named getComputerChoice.
-
+// Initial set up of variables and DOM elements
 
 let computerChoice = ""
 let humanChoice = ""
 let humanScore = 0
 let computerScore = 0
+
 const buttons = document.querySelectorAll("button");
 const results = document.createElement("div");
 const roundWinner = document.createElement("div");
 const scoreCard = document.createElement("div");
 const newGameBtn = document.createElement("button");
 newGameBtn.textContent = "Play again!"
+
+
+function startGame() {
+    humanScore = 0;
+    computerScore = 0;
+    roundWinner.textContent = "";
+    scoreCard.textContent = "";
+    results.appendChild(roundWinner);
+    results.appendChild(scoreCard);
+    document.body.appendChild(results);
+}
 
 function getComputerChoice() {
     const random = Math.floor(Math.random() * 3)
@@ -27,35 +38,8 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-function startGame() {
-    humanScore = 0;
-    computerScore = 0;
-    roundWinner.textContent = "";
-    scoreCard.textContent = "";
-    results.appendChild(roundWinner);
-    results.appendChild(scoreCard);
-    document.body.appendChild(results);
-
-}
-
-
-/*Create two new variables named humanScore and computerScore in the global scope.
-Initialize those variables with the value of 0.*/
-
-
-
-/*Create a new function named playRound with two parameters for playRound: humanChoice and computerChoice.
-
-Use these two parameters to take the human and computer choices as arguments.*/
-
-/*Write the code for your playRound function to console.log a string value representing the round winner, such as: “You lose! Paper beats Rock”.
-Increment the humanScore or computerScore variable based on the round winner.*/
-
-async function updateScore() {
-
+function updateScore() {
     scoreCard.textContent = `The score is ${computerScore} for the computer and ${humanScore} for you.`;
-
-
 }
 
 async function checkWinner() {
@@ -122,20 +106,3 @@ function newGame() {
 
 buttons.forEach(button => button.addEventListener('click', playRound));
 newGameBtn.addEventListener('click', newGame);
-
-
-
-
-
-// playing the game 5 times bu calling the playRound() function repeatedly
-/*
-function playGame() {
-    for (let i = 0; i < 5; i++) {
-    playRound();
-    }
-}
-
-playGame();
-*/
-
-// Displaying final score in the console log.
